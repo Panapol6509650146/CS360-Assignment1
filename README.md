@@ -134,25 +134,25 @@ git -v #ตรวจสอบเวอร์ชั่น Git
 ในการ push code ขึ้น GitHub มีขั้นตอนการรันคำสั่งดังนี้
 ```
 #setup เบื้องต้น
+cd ..ชื่อ project.. #ถ้ายังไม่อยู่ใน directory project
+git init #บอก Git ว่าเราจะทำงานในโฟลเดอร์นี้
 git config --global user.name "..ชื่อ.." #ตั้ง username ถ้ายังไม่ได้ตั้ง
 git config --global user.email ..email.. #ตั้ง email ถ้ายังไม่ได้ตั้ง
-cd ..ชื่อ project.. #ถ้ายังไม่อยู่ใน directory project
 git remote add ..ชื่อ remote.. ..remote-repository-URL(เช่น git@github.com:yourname/..my-repo...git).. #ตั้งค่าให้ repository ในเครื่องเชื่อมต่อกับ repository บน GitHub ที่ remote-repository-URL
 git branch -M main #สร้าง branch สำหรับเก็บโค้ด ในที่นี้คือ main
 
-git init #บอก Git ว่าเราจะทำงานในโฟลเดอร์นี้
 git add . #add ทุกอย่างใน directory
 git commit -m "..ข้อความ.." #บันทึกการเปลี่ยนแปลงใน local repository
 git push -u ..ชื่อ remote.. main #บันทึกการเปลี่ยนแปลงใน remote repository
 ```
 
 ### `clone code จาก GitHub ลง EC2`
-อัพเดท Yum ใน EC2 และติดตั้ง package ที่จำเป็น
+อัพเดท apt ใน EC2 และติดตั้ง package ที่จำเป็น
 ```
-sudo yum update -y #อัพเดท Yum
-sudo yum install npm #ติดตั้ง Node Package Manager
+sudo apt update #อัพเดท apt
+sudo apt install npm #ติดตั้ง Node Package Manager
 sudo npm install yarn -g #ติดตั้ง Yarn
-sudo yum install git -y #ติดตั้ง Git
+sudo apt install git #ติดตั้ง Git
 ```
 หลังจากดาวน์โหลดสามารถตรวจสอบเวอร์ชั่นเพื่อให้มั่นใจว่า package ถูกติดตั้งไว้แล้วโดยใช้คำสั่ง
 ```
@@ -165,13 +165,13 @@ git -v #ตรวจสอบเวอร์ชั่น Git
 ในการ clone code ขึ้น GitHub มีขั้นตอนการรันคำสั่งดังนี้
 ```
 #setup เบื้องต้น
-git remote add ..ชื่อ remote.. ..remote-repository-URL(เช่น git@github.com:yourname/..my-repo...git).. #ตั้งค่าให้ repository ในเครื่องเชื่อมต่อกับ repository บน GitHub ที่ remote-repository-URL
 mkdir ..ชื่อ directory ที่ใช้เก็บไฟล์.. #สร้าง directory ที่ใช้เก็บไฟล์
 cd ..ชื่อ directory ที่ใช้เก็บไฟล์.. #เข้าไปยัง directory ที่ใช้เก็บไฟล์
 
 git init #บอก Git ว่าเราจะทำงานในโฟลเดอร์นี้
+git remote add ..ชื่อ remote.. ..remote-repository-URL(เช่น git@github.com:yourname/..my-repo...git).. #ตั้งค่าให้ repository ในเครื่องเชื่อมต่อกับ repository บน GitHub ที่ remote-repository-URL
 git clone ..remote-repository-URL.. #clone project จาก remote-repository-URL
-cd ..ชื่อ project.. #ข้าไปยัง directory ของ project 
+cd ..ชื่อ project.. #เข้าไปยัง directory ของ project 
 yarn install  #ติดตั้งแพ็กเกจและ dependencies ต่าง ๆ ในโปรเจกต์
 cp .env.example .env #สร้าง .env โดย copy .env.example
 nano .env #แก้ไข HOST, PORT, Key, Token ต่างๆใน .env
@@ -179,4 +179,70 @@ nano .env #แก้ไข HOST, PORT, Key, Token ต่างๆใน .env
 #คำสั่งอื่นๆ
 git fetch #ตรวจสอบว่าไฟล์ใน local repository กับ remote repository มีความแตกต่างกันหรือไม่
 git pull #ดึงไฟล์ที่มีการเปลี่ยนแปลงใน remote repository มาเปลี่ยนแปลงใน local repository
+```
+
+## `ขั้นตอนการ Deploy`
+
+อัพเดท apt และติดตั้ง package ที่จำเป็น
+```
+sudo apt update #อัพเดท apt
+sudo apt install npm #ติดตั้ง Node Package Manager
+sudo npm install yarn -g #ติดตั้ง Yarn
+sudo apt install git #ติดตั้ง Git
+sudo npm install pm2 -g #ติดตั้ง สำหรับจัดการ process
+```
+สร้าง directory สำหรับรัน project ด้วยคำสั่ง
+```
+mkdir ..ชื่อ directory.. #สร้าง directory
+cd ..ชื่อ directory.. #เข้าไปยัง directory
+```
+
+clone project จาก GitHub มาลง EC2
+```
+git ..remote-repository-URL.. #clone project จาก remote-repository-URL
+cd ..ชื่อ directory project.. #เข้าไปยัง directory ของ project 
+yarn install #ติดตั้งแพ็กเกจและ dependencies ต่าง ๆ ในโปรเจกต์
+```
+
+setup .env ของเว็บไซต์ โดย copy template จาก .env.example
+```
+cp .env.example .env #สร้าง .env โดย copy .env.example
+nano .env #แก้ไข HOST, PORT, Key, Token ต่างๆใน .env
+```
+
+build project โดยใช้คำสั่ง
+```
+NODE_ENV=production yarn build
+```
+สร้างไฟล์สำหรับรัน project
+```
+pm2 init #สร้าง ecosystem.config.js สำหรับรัน project
+sudo nano ecosystem.config.js #แก้ไขไฟล์สำหรับรัน project
+
+#แก้ไขในไฟล์ ecosystem.config.js ตามโต้ดด้านล่าง
+
+module.exports = {
+  apps: [
+    {
+      name: 'strapi-deploy',
+      cwd: '/home/ubuntu/strapi/CS360-Assignment1',
+      script: 'yarn',
+      args: 'start',
+      env: {
+        APP_KEYS: process.env.API_KEYS,
+        API_TOKEN_SALT: process.env.API_TOKEN_SALT,
+        ADMIN_JWT_SECRET: process.env.ADMIN_JWT_SECRET,
+        JWT_SECRET: process.env.JWT_SECRET,
+        NODE_ENV: 'production',
+      },
+    },
+  ],
+};
+
+
+```
+
+รัน project โดยใช้คำสั่ง
+```
+pm2 start ecosystem.config.js
 ```
