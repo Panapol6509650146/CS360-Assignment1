@@ -153,7 +153,7 @@ sudo yum update -y #อัพเดท Yum
 sudo yum install npm #ติดตั้ง Node Package Manager
 sudo npm install yarn -g #ติดตั้ง Yarn
 sudo yum install git -y #ติดตั้ง Git
-
+```
 หลังจากดาวน์โหลดสามารถตรวจสอบเวอร์ชั่นเพื่อให้มั่นใจว่า package ถูกติดตั้งไว้แล้วโดยใช้คำสั่ง
 ```
 npm -v #ตรวจสอบเวอร์ชั่น Node Package Manager
