@@ -144,7 +144,7 @@ yarn develop #รัน project
 ### push code ขึ้น GitHub
 สร้าง repository ได้ที่ https://github.com/ และตั้งชื่อ repository ตามต้องการเช่น ..my-repo..
 
-ดาวน์โหลด Git Bash ได้ที https://git-scm.com/download/win
+ดาวน์โหลด Git Bash ได้ที่ https://git-scm.com/download/win
 
 ขั้นตอนการดาวน์โหลดมีดังนี้ :
 
@@ -176,33 +176,31 @@ git push -u ..ชื่อ remote.. main #บันทึกการเปล�
   * https://docs.strapi.io/dev-docs/installation/cli
 
 ## ขั้นตอนการ Deploy
-ขั้นตอนการ launch instance 
-```
-1.ตั้งชื่อ instance
-2.เลือก OS : Ubuntu Server 24.04 LTS (HVM), SSD Volume Type
-3.เลือก Instance : type t2.small
-4.เลือก keypair
-5.สร้าง security group 
+ขั้นตอนการ launch instance <sub>*ขั้นตอนนี้จะได้ key.pem มา<sub>
+
+1. ตั้งชื่อ instance
+2. เลือก OS : Ubuntu Server 24.04 LTS (HVM), SSD Volume Type
+3. เลือก Instance : type t2.small
+4. เลือก keypair
+5. สร้าง security group 
   -Type: SSH, Protocol: TCP, Port Range 22, Source: 0.0.0.0/0 (ถ้ามีแล้วไม่ต้องเพิ่ม)
   -Type: SSH, Protocol: TCP, Port Range 22, Source: ::/0
   -Type: HTTP, Protocol: TCP, Port Range 80, Source: 0.0.0.0/0, ::/0
   -Type: HTTPS, Protocol: TCP, Port Range 443, Source: 0.0.0.0/0, ::/0
   -Type: Custom TCP Rule, Protocol: TCP, Port Range 1337, Source: 0.0.0.0/0
-6.Configure storage : 1x 8 GiB gp2 Root volume
-7.Launch instance
-*ขั้นตอนนี้จะได้ key.pem มา
-```
-หลังจากสร้างแล้วต้องเชื่อมต่อ instace นี้กับเครื่องของเราโดยทำตามขั้นตอนดั้งนี้
-```
-1.เข้าไปยัง console home ของ aws
-2.click EC2
-3.click instane ใน Resources
-4.click ขวาที่ intance ที่สร้างไว้
-5.click connect
-6.copy code ตรง example โดยแก้ไข directory key.pem ในโค้ดให้ตรงกับ directory key.pem ในเครื่องเรา
-```
+6. Configure storage : 1x 8 GiB gp2 Root volume
+7. Launch instance
 
-หลังจากเชื่อมต่อ instance หับเครื่องได้แล้วจำเป็นต้องอัพเดท apt และติดตั้ง package ที่จำเป็น
+หลังจากสร้างแล้วต้องเชื่อมต่อ instace นี้กับเครื่องของเราโดยทำตามขั้นตอนดั้งนี้
+
+1. เข้าไปยัง console home ของ aws
+2. click EC2
+3. click instane ใน Resources
+4. click ขวาที่ intance ที่สร้างไว้
+5. click connect
+6. copy code ตรง example โดยแก้ไข directory key.pem ในโค้ดให้ตรงกับ directory key.pem ในเครื่องเรา
+
+หลังจากเชื่อมต่อ instance กับบเครื่องได้แล้วจำเป็นต้องอัพเดท apt และติดตั้ง package ที่จำเป็น
 ```
 sudo apt update #อัพเดท apt
 sudo apt install npm #ติดตั้ง Node Package Manager
@@ -218,6 +216,7 @@ yarn -v #ตรวจสอบเวอร์ชั่น Yarn
 git -v #ตรวจสอบเวอร์ชั่น Git
 pm2 -v #ตรวจสอบเวอร์ชั่น pm2
 ```
+
 สร้าง directory สำหรับรัน project ด้วยคำสั่ง
 ```
 mkdir ..ชื่อ directory.. #สร้าง directory
@@ -270,11 +269,12 @@ module.exports = {
 
 ```
 
-รัน project โดยใช้คำสั่ง
+Deploy Project โดยใช้คำสั่ง
 ```
 pm2 start ecosystem.config.js
 ```
+โดยจะเข้าถึงเว็บไซต์ำด้ที่ http://..Public-IPv4-DNsของinstance..:1337/
 
-### อ้างอิง
-https://docs.strapi.io/dev-docs/deployment
-https://docs.strapi.io/dev-docs/deployment/amazon-aws
+* อ้างอิง
+  * https://docs.strapi.io/dev-docs/deployment
+  * https://docs.strapi.io/dev-docs/deployment/amazon-aws
