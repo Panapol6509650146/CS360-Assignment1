@@ -147,6 +147,21 @@ git push -u ..ชื่อ remote.. main #บันทึกการเปล�
 ```
 
 ### `clone code จาก GitHub ลง EC2`
+ขั้นตอนการ launch instance 
+```
+1.ตั้งชื่อ instance
+2.เลือก OS : Ubuntu Server 24.04 LTS (HVM), SSD Volume Type
+3.เลือก Instance : type t2.small
+4.เลือก keypair
+5.สร้าง security group 
+  -Type: SSH, Protocol: TCP, Port Range 22, Source: 0.0.0.0/0 (ถ้ามีแล้วไม่ต้องเพิ่ม)
+  -Type: SSH, Protocol: TCP, Port Range 22, Source: ::/0
+  -Type: HTTP, Protocol: TCP, Port Range 80, Source: 0.0.0.0/0, ::/0
+  -Type: HTTPS, Protocol: TCP, Port Range 443, Source: 0.0.0.0/0, ::/0
+  -Type: Custom TCP Rule, Protocol: TCP, Port Range 1337, Source: 0.0.0.0/0
+6.Configure storage : 1x 8 GiB gp2 Root volume
+7.Launch instance
+```
 อัพเดท apt ใน EC2 และติดตั้ง package ที่จำเป็น
 ```
 sudo apt update #อัพเดท apt
@@ -246,3 +261,6 @@ module.exports = {
 ```
 pm2 start ecosystem.config.js
 ```
+
+fire wall
+instance setup
