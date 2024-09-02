@@ -40,7 +40,7 @@ touch .gitignore
 ```
 
 ### เนื้อหาใน .gitigore ที่ Strapi มีให้มามีรายละเอียดดังนี้
-`
+```
 OS X:
 
 .DS_Store: เป็นไฟล์ที่ macOS สร้างขึ้นเพื่อเก็บข้อมูลเกี่ยวกับการจัดเรียงไอคอนในโฟลเดอร์ ไม่เกี่ยวข้องกับโค้ดและมักทำให้ repository รก
@@ -89,11 +89,11 @@ Strapi:
 license.txt, exports: ไฟล์ข้อมูลที่ไม่เกี่ยวข้องกับโค้ดหลักของโปรเจกต์
 .strapi, .strapi-updater.json, .strapi-cloud.json: ไฟล์การตั้งค่าภายในของ Strapi ที่ไม่จำเป็นต้องแชร์ไปยังทีมพัฒนา
 dist, build: ไฟล์ที่สร้างจากการ build โค้ดและสามารถสร้างใหม่ได้ ไม่จำเป็นต้องเก็บใน repository
-`
+```
 ### อ้างอิง
-https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
-https://medium.com/odds-team/gitignore-%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%AA%E0%B8%B2%E0%B8%A1%E0%B8%B2%E0%B8%A3%E0%B8%96%E0%B8%82%E0%B8%AD%E0%B8%87-git-version-control-a77d1677a9d3
-ChatGPT
+* https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+* https://medium.com/odds-team/gitignore-%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%AA%E0%B8%B2%E0%B8%A1%E0%B8%B2%E0%B8%A3%E0%B8%96%E0%B8%82%E0%B8%AD%E0%B8%87-git-version-control-a77d1677a9d3
+* ChatGPT (รายละเอียด .gitignore)
 
 ## ขั้นตอนในการติดตั้งทั้งหมด
 ### Strapi
