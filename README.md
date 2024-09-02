@@ -100,15 +100,15 @@ dist, build: ไฟล์ที่สร้างจากการ build โค
 
 ระบบปฏิบัติการที่ใช้ : Window
 
-**1.ดาวน์โหลด npm และ nodejs ได้ที่ https://nodejs.org/en/download/prebuilt-installer**
+1.ดาวน์โหลด npm และ nodejs ได้ที่ https://nodejs.org/en/download/prebuilt-installer
 
-  ขั้นตอนการดาวน์โหลดมีดังนี้ :
+ขั้นตอนการดาวน์โหลดมีดังนี้ :
 
-    1. เลือกเวอร์ชั่น v20.17.0(LTS)<sub>LTS (Long Time Support) เป็น version ที่มีเสถียรภาพที่สุดที่ถูกปล่อยออกมา</sub>
-    2. เลือกระบบปฏิบัติการที่ใช้
-    3. เลือกสถาปัตยกรรมที่ใช้
-    4. กดปุ่มดาวน์โหลด
-    5. ติดตั้งลงบน PC
+  1. เลือกเวอร์ชั่น v20.17.0(LTS)<sub>LTS (Long Time Support) เป็น version ที่มีเสถียรภาพที่สุดที่ถูกปล่อยออกมา</sub>
+  2. เลือกระบบปฏิบัติการที่ใช้
+  3. เลือกสถาปัตยกรรมที่ใช้
+  4. กดปุ่มดาวน์โหลด
+  5. ติดตั้งลงบน PC
 
 หลังจากดาวน์โหลดสามารถตรวจสอบเวอร์ชั่นเพื่อให้มั่นใจว่า package ถูกติดตั้งไว้แล้ว
 ```
@@ -116,7 +116,7 @@ node -v #ตรวจสอบเวอร์ชั่น Node.js
 npm -v #ตรวจสอบเวอร์ชั่น Node Package Manager
 ```
 
-**2.ติดตั้ง Yarn สำหรับติดตั้ง Strapi**
+2.ติดตั้ง Yarn สำหรับติดตั้ง Strapi
 ```
 npm install -g yarn
 ```
@@ -125,14 +125,15 @@ npm install -g yarn
 yarn -v #ตรวจสอบเวอร์ชั่น Yarn
 ```
 
-**3.สร้าง Strapi project**
+3.สร้าง Strapi project
 
 ```
 yarn create strapi-app ..ชื่อ project..
 ->quickstart
 ->skip
 ```
-**4.RUN**
+4.RUN
+
 หลังจากสร้าง Strapi project แล้ว project จะรันโดยอัตโนมัติและสามารถรันด้วนตนเองได้โดยใช้คำสั่ง
 
 ```
