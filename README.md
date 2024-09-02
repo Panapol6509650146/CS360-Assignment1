@@ -273,8 +273,18 @@ module.exports = {
 ```
 pm2 start ecosystem.config.js
 ```
-โดยจะเข้าถึงเว็บไซต์ำด้ที่ http://..Public-IPv4-DNsของinstance..:1337/
+**โดยจะเข้าถึงเว็บไซต์ำด้ที่ http://..Public-IPv4-DNsของinstance..:1337/**
 
+(optional)ทำให้ project run เมื่อ startup
+```
+pm2 startup systemd
+
+copy command จาก console มารัน
+
+pm2 save
+
+sudo reboot
+```
 * อ้างอิง
   * https://docs.strapi.io/dev-docs/deployment
   * https://docs.strapi.io/dev-docs/deployment/amazon-aws
