@@ -4,30 +4,23 @@
 
 Strapi คือโปรแกรม Headless CMS ที่เป็นโอเพนซอร์ส ซึ่งนักพัฒนาสามารถนำไปใช้สร้าง API ด้วย Javascript ได้อย่างรวดเร็ว และยังเป็นบริการที่ใช้งานได้ฟรี มีความยืดหยุ่น บริหารจัดการได้ง่าย มีความปลอดภัย รวมถึงสามารถปรับขนาดให้เหมาะสมกับธุรกิจได้ และทำงานร่วมกับ framework รุ่นใหม่ส่วนใหญ่อย่างเช่น React และ Node ได้เป็นอย่างดีอีกด้วย
 
-### `องค์ประกอบของ strapi`
-*อ้างอิงจาก Strapi Dashboard
-```
--Content Manager : ระบบจัดการ Content ใน Collection Type และ Single Type ต่างๆในเว็บไซต์
--Content-Type Builder : ระบบสร้าง Content ใน Collection Type และ Single Type
--Media Library : ระบบจัดการไฟล์สื่อ เช่น รูปภาพ วิดีโอ และเอกสาร
--Release : ระบบจัดการการอัพเดทและปล่อย Content
--Plugin : ระบบส่วนขยายที่เพิ่มฟังก์ชันให้กับ Strapi
--Marketplace : ระบบที่รวบรวม Plugin และ Provider ที่สามารถติดตั้งและใช้งานกับ Strapi ได้
--Setting : การตั้งค่าต่างๆ เช่น API Tokens หรือ Roles
-```
+* องค์ประกอบของ Strapi (*อ้างอิงจาก Strapi Dashboard)
+  * Content-Type Builder : ระบบสร้าง Content ใน Collection Type และ Single Type
+  * Media Library : ระบบจัดการไฟล์สื่อ เช่น รูปภาพ วิดีโอ และเอกสาร
+  * Release : ระบบจัดการการอัพเดทและปล่อย Content
+  * Plugin : ระบบส่วนขยายที่เพิ่มฟังก์ชันให้กับ Strapi
+  * Marketplace : ระบบที่รวบรวม Plugin และ Provider ที่สามารถติดตั้งและใช้งานกับ Strapi ได้
+  * Setting : การตั้งค่าต่างๆ เช่น API Tokens หรือ Roles
 
-### `Use cases`
-Strapi เป็นโปรแกรมที่ยืดหยุ่นจึงทำให้มี Use cases ที่น่าสนใจมากมายเช่น
-```
--BrandiumPro เพิ่มยอดสั่งอาหารออนไลน์ของร้านอาหาร 5 เท่าด้วยการใช้ Strapi CMS ด้วยอินเทอร์เฟซที่ใช้งานง่ายและมี admin panel ที่ทำให้เขาโฟกัสในการแก้ปัญหาโดยไม่ต้องเสียเวลาและทรัพยากร
--Societe Generale เว็บไซต์ฝึกอบรมที่สามารถใช้งานได้จริงภายในระยะเวลา 3 เดือนโดยการใช้ Strapi CMS
--Shelt.in บริษัท IoT สัญชาติฝรั่งเศสเปลี่ยนมาใช้ Strapi เนื่องจาก API ของพวกเขามีข้อจำกัด ซึ่ง Strapi มีความยืดหยุ่นและความเร็วสูงกว่า
-```
+* `Use cases`
+  * BrandiumPro เพิ่มยอดสั่งอาหารออนไลน์ของร้านอาหาร 5 เท่าด้วยการใช้ Strapi CMS ด้วยอินเทอร์เฟซที่ใช้งานง่ายและมี admin panel ที่ทำให้เขาโฟกัสในการแก้ปัญหาโดยไม่ต้องเสียเวลาและทรัพยากร
+  * Societe Generale เว็บไซต์ฝึกอบรมที่สามารถใช้งานได้จริงภายในระยะเวลา 3 เดือนโดยการใช้ Strapi CMS
+  * Shelt.in บริษัท IoT สัญชาติฝรั่งเศสเปลี่ยนมาใช้ Strapi เนื่องจาก API ของพวกเขามีข้อจำกัด ซึ่ง Strapi มีความยืดหยุ่นและความเร็วสูงกว่า
 
-### `อ้างอิง`
-https://morphos.is/th/blog/what-is-strapi-and-how-it-will-dominate-the-world-of-headless-cms
-https://strapi.io/blog/brandium-pro-boosts-restaurants-online-orders-5x-using-strapi-cms
-https://www.zenesys.com/strapi-headless-cms-guide-features-and-use-cases
+* `อ้างอิง`
+  * https://morphos.is/th/blog/what-is-strapi-and-how-it-will-dominate-the-world-of-headless-cms
+  * https://strapi.io/blog/brandium-pro-boosts-restaurants-online-orders-5x-using-strapi-cms
+  * https://www.zenesys.com/strapi-headless-cms-guide-features-and-use-cases
 
 ## `ไฟล์ .gitignore`
 
